@@ -1,0 +1,53 @@
+{
+  "name": "nationwide-hackathon-api",
+  "version": "1.0.0",
+  "description": "This api is for nationwide hackathon",
+  "main": "handler.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "@types/twilio": "0.0.9",
+    "express": "4.16.3",
+    "firebase": "5.0.3",
+    "twilio": "3.17.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "0.0.24",
+    "@types/jest": "^22.0.0",
+    "@types/node": "^8.5.2",
+    "jest": "^21.2.1",
+    "serverless-plugin-typescript": "^1.1.5",
+    "ts-jest": "^22.0.0",
+    "tslint": "^5.8.0",
+    "tslint-microsoft-contrib": "^5.0.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint",
+    "lint-fix": "tslint --fix",
+    "deploy": "sls deploy --aws-profile hackathon"
+  },
+  "jest": {
+    "automock": false,
+    "mapCoverage": true,
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec|uspec|ispec))\\.(ts|tsx|js)$",
+    "setupFiles": [
+      "<rootDir>/node_modules/@deliverr/commons/lib/tests/JestSetup.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "author": "Zahidul Islam",
+  "license": "UNDEFINED"
+}

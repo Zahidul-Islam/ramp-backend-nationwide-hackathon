@@ -1,0 +1,32 @@
+service: aws-lambda-template
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  profile: hackathon
+  environment:
+    ACCOUNT_SID: "ACe70109ba8468940aeb6a3d7c590e5bfc"
+    AUTH_TOKEN: "134773685b57dd55c3035bd99cf88210"
+    TWILIO_NUMBER: "+14158002319"
+    PROPERTY_MANAGER_NUMBER: "+16508682545"
+    PLUMBER_NUMBER: "+14154887408"
+
+package:
+  exclude:
+    - coverage/**
+    - .circleci/**
+    - README.md
+    - smartthings/**
+  include:
+    handler.ts
+
+functions:
+  notification:
+    handler: handler.notificationHandler
+    events:
+      - http:
+          path: watersensor
+          method: post
+plugins:
+  - serverless-plugin-typescript
